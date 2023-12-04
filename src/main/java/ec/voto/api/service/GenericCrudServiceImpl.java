@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import ec.voto.api.dto.PartidoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -17,6 +18,7 @@ public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrud
 
 	@Autowired
 	private JpaRepository<DOMAIN, Long> repository;
+
 
 	@Override
 	public DTO save(DTO dto) {
@@ -53,7 +55,7 @@ public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrud
 	}
 
 	@Override
-	public void delete(DTO dto) {
+	public DTO delete(DTO dto) {
 		Optional<DOMAIN> optional = find(dto);
 		if (!optional.isPresent()) {
 			throw new ApiException(String.format("Registro no existe en el sistema"));
@@ -65,6 +67,7 @@ public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrud
 				throw new ApiException(String.format(e.getMessage()));
 			}
 		}
+		return null;
 	}
 
 	@Override
