@@ -51,7 +51,7 @@ public class PaisController {
 	}
 
 	@GetMapping(value = "{id}/archivo/id", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
+	public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") String id) {
 		PaisDTO dto = new PaisDTO();
 		dto.setId(id);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);

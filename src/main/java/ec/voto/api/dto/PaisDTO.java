@@ -11,12 +11,14 @@ import lombok.ToString;
 @ToString
 public class PaisDTO {
 
-	private Long id;
+	private String id;
 
 	private String codigo;
 
 	private String nombre;
 
 	private String gentilicio;
+	
+	private String password;
 
 }
