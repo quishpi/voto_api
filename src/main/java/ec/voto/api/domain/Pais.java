@@ -1,5 +1,7 @@
 package ec.voto.api.domain;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,9 +18,10 @@ import lombok.Setter;
 public class Pais {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(updatable = false, nullable = false)
-	private Long id;
+	@GenericGenerator(name = "uuid2", strategy = "uuid2")
+	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "uuid2")
+	@Column(length = 36, nullable = false, updatable = false)
+	private String id;
 
 	@Column(nullable = false, unique = true)
 	private String codigo;
@@ -28,6 +31,9 @@ public class Pais {
 
 	@Column(nullable = false, unique = true)
 	private String gentilicio;
+
+	@Column
+	private String password;
 
 }
  */
