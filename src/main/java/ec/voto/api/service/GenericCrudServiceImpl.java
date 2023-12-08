@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import ec.voto.api.dto.PartidoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -17,7 +16,7 @@ import ec.voto.api.common.ApiException;
 public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrudService<DOMAIN, DTO> {
 
 	@Autowired
-	private JpaRepository<DOMAIN, Long> repository;
+	private JpaRepository<DOMAIN, String> repository;
 
 
 	@Override

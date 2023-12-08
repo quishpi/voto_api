@@ -9,11 +9,11 @@ import lombok.Data;
 @AllArgsConstructor
 public class ApiResponseDTO<T> implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private boolean success;
+    private boolean success;
 
-	@NotNull
-	private T result;
+    @NotNull
+    private T result;
 
 }

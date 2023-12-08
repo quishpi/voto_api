@@ -9,15 +9,14 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PartidoDTO {
+public class UsuarioDTO {
 
-    private Long id;
+    private String id;
 
-    private String candidato;
+    private String username;
 
-    private Long numPartido;
+    private String password;
 
-    private String nombrePartido;
+    private String rolName;
 
 }
-

@@ -1,7 +1,5 @@
 package ec.voto.api.service;
 
-import ec.voto.api.dto.PartidoDTO;
-
 import java.util.List;
 import java.util.Optional;
 
