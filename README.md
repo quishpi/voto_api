@@ -4,7 +4,7 @@
 ## Authors
 
  - [@quishpi](https://github.com/quishpi/)
- - 
+ - [@Byron_Serrano](https://github.com/ByronSerrano)
 
 ## Requirements
 

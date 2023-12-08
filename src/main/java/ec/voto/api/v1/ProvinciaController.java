@@ -1,5 +1,5 @@
 package ec.voto.api.v1;
-
+/*
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,3 +53,4 @@ public class ProvinciaController {
 	}
 
 }
+ */

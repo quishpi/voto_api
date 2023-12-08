@@ -1,5 +1,5 @@
 package ec.voto.api.dto;
-/*
+
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,18 +9,14 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class PaisDTO {
+public class UsuarioDTO {
 
-	private String id;
+    private String id;
 
-	private String codigo;
+    private String username;
 
-	private String nombre;
+    private String password;
 
-	private String gentilicio;
-	
-	private String password;
+    private String rolName;
 
 }
-
- */

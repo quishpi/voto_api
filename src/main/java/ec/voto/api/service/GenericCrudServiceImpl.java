@@ -16,7 +16,8 @@ import ec.voto.api.common.ApiException;
 public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrudService<DOMAIN, DTO> {
 
 	@Autowired
-	private JpaRepository<DOMAIN, Long> repository;
+	private JpaRepository<DOMAIN, String> repository;
+
 
 	@Override
 	public DTO save(DTO dto) {
@@ -53,7 +54,7 @@ public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrud
 	}
 
 	@Override
-	public void delete(DTO dto) {
+	public DTO delete(DTO dto) {
 		Optional<DOMAIN> optional = find(dto);
 		if (!optional.isPresent()) {
 			throw new ApiException(String.format("Registro no existe en el sistema"));
@@ -65,6 +66,7 @@ public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrud
 				throw new ApiException(String.format(e.getMessage()));
 			}
 		}
+		return null;
 	}
 
 	@Override

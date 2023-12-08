@@ -9,7 +9,7 @@ public interface GenericCrudService<DOMAIN, DTO> {
 
 	public DTO update(DTO dto);
 
-	public void delete(DTO dto);
+	public DTO delete(DTO dto);
 
 	public abstract Optional<DOMAIN> find(DTO dto);
 
