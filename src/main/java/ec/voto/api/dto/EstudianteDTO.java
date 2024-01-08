@@ -17,7 +17,9 @@ public class EstudianteDTO {
 
     private String email;
 
-    private GradoDTO grado;
+    private Boolean firmaAsistencia;
+
+    private CursoDTO curso;
 
 }
 

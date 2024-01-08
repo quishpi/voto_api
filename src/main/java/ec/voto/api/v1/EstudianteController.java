@@ -15,7 +15,7 @@ import ec.voto.api.service.EstudianteService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = { "/api/v2.0/estudiante" })
+@RequestMapping(value = { "/api/estudiante" })
 public class EstudianteController {
     @Autowired
     EstudianteService service;
@@ -39,7 +39,7 @@ public class EstudianteController {
         return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "{id}/id", produces = { MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping(value = "id/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
         EstudianteDTO dto = new EstudianteDTO();
         dto.setId(id);

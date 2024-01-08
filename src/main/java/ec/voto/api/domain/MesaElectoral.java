@@ -13,7 +13,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 @Getter
 @Setter
@@ -34,6 +33,6 @@ public class MesaElectoral {
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "grado_id")
-    private Grado grado;
+    private Curso grado;
 
 }

@@ -6,7 +6,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 @MappedSuperclass
 @Getter
@@ -20,6 +19,6 @@ public class MesaElectoralDTO {
 
     private boolean firmaAsistencia;
 
-    private GradoDTO grado;
+    private CursoDTO grado;
 
 }

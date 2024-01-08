@@ -30,8 +30,11 @@ public class Estudiante {
     @Column(unique = true)
     private String email;
 
+    @Column(name = "firma_asistencia")
+    private Boolean firmaAsistencia;
+
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "grado_id")
-    private Grado grado;
+    private Curso grado;
 
 }
