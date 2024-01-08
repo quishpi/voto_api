@@ -1,24 +1,24 @@
 package ec.voto.api.dto;
-/*
+
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.sql.Timestamp;
+
 @MappedSuperclass
 @Getter
 @Setter
 @ToString
-public class PaisDTO {
+public class MesaElectoralDTO {
 
-	private Long id;
+    private Long id;
 
-	private String codigo;
+    private Timestamp fecha;
 
-	private String nombre;
+    private boolean firmaAsistencia;
 
-	private String gentilicio;
+    private CursoDTO grado;
 
 }
-
- */

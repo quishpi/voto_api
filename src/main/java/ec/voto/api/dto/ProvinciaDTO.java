@@ -1,5 +1,5 @@
 package ec.voto.api.dto;
-
+/*
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,3 +18,5 @@ public class ProvinciaDTO {
 	private PaisDTO pais;
 	
 }
+
+ */

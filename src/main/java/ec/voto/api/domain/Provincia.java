@@ -1,5 +1,5 @@
 package ec.voto.api.domain;
-
+/*
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,3 +31,4 @@ public class Provincia {
 	private Pais pais;
 
 }
+*/

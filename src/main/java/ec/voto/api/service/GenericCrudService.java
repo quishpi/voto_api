@@ -1,5 +1,7 @@
 package ec.voto.api.service;
 
+import ec.voto.api.dto.PartidoDTO;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -9,7 +11,7 @@ public interface GenericCrudService<DOMAIN, DTO> {
 
 	public DTO update(DTO dto);
 
-	public void delete(DTO dto);
+	public DTO delete(DTO dto);
 
 	public abstract Optional<DOMAIN> find(DTO dto);
 
