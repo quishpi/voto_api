@@ -25,11 +25,8 @@ public class MesaElectoral {
     @Column(updatable = false, nullable = false)
     private Long id;
 
-    @Column(columnDefinition = "DATE DEFAULT current_date")
-    private Timestamp fecha;
-
-    @Column(name = "firma_asistencia", columnDefinition = "BOOLEAN DEFAULT false")
-    private boolean firmaAsistencia;
+    @Column(name = "num_mesa")
+    private Long numMesa;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "grado_id")

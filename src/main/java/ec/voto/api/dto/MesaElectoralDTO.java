@@ -15,9 +15,7 @@ public class MesaElectoralDTO {
 
     private Long id;
 
-    private Timestamp fecha;
-
-    private boolean firmaAsistencia;
+    private Long numMesa;
 
     private CursoDTO grado;
 

@@ -30,7 +30,7 @@ public class Estudiante {
     @Column(unique = true)
     private String email;
 
-    @Column(name = "firma_asistencia")
+    @Column(name = "firma_asistencia", columnDefinition = "BOOLEAN DEFAULT false")
     private Boolean firmaAsistencia;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
