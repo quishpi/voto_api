@@ -5,6 +5,7 @@
 
  - [@quishpi](https://github.com/quishpi/)
  - [@Byron_Serrano](https://github.com/ByronSerrano)
+ - [@xavinavi545](https://github.com/xavinavi545)
 
 ## Requirements
 
