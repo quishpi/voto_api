@@ -34,7 +34,7 @@ public class Estudiante {
     private Boolean firmaAsistencia;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "grado_id")
-    private Curso grado;
+    @JoinColumn(name = "curso_id")
+    private Curso curso;
 
 }

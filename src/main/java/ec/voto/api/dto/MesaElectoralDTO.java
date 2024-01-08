@@ -17,6 +17,4 @@ public class MesaElectoralDTO {
 
     private Long numMesa;
 
-    private CursoDTO grado;
-
 }

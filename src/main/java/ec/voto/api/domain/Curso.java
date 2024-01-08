@@ -19,7 +19,7 @@ public class Curso {
     private String nombre;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "mesa")
+    @JoinColumn(name = "mesa_id")
     private MesaElectoral mesa;
 
 }

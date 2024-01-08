@@ -28,8 +28,4 @@ public class MesaElectoral {
     @Column(name = "num_mesa")
     private Long numMesa;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "grado_id")
-    private Curso grado;
-
 }
