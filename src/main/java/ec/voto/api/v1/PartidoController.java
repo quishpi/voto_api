@@ -23,7 +23,7 @@ import ec.voto.api.service.PartidoService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = { "/api/v2.0/partido" })
+@RequestMapping(value = { "/api/partido" })
 public class PartidoController {
 
     @Autowired

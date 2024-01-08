@@ -13,7 +13,7 @@ import ec.voto.api.service.MesaElectoralService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = { "/api/v2.0/mesa" })
+@RequestMapping(value = { "/api/mesa" })
 public class MesaElectoralController {
     @Autowired
     MesaElectoralService service;

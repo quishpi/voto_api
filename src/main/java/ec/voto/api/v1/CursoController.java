@@ -12,7 +12,7 @@ import ec.voto.api.dto.CursoDTO;
 import ec.voto.api.service.CursoService;
 
 @RestController
-@RequestMapping(value = { "/api/v2.0/grado" })
+@RequestMapping(value = { "/api/curso" })
 public class CursoController {
 
     @Autowired

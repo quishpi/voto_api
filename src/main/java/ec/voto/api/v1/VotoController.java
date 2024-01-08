@@ -15,7 +15,7 @@ import ec.voto.api.service.VotoService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping(value = { "/api/v2.0/voto" })
+@RequestMapping(value = { "/api/voto" })
 public class VotoController {
 
     @Autowired

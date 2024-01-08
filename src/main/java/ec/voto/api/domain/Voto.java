@@ -32,7 +32,8 @@ public class Voto {
     @JoinColumn(name = "partido_id")
     private Partido partido;
 
-    @Column(name = "voto_nulo", columnDefinition = "BOOLEAN DEFAULT false")
-    private boolean votoNulo;
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "mesa_id")
+    private MesaElectoral mesa;
 
 }
