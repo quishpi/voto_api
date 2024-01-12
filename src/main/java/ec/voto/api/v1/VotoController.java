@@ -63,4 +63,10 @@ public class VotoController {
         return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscarNumMesa(numMesa)), HttpStatus.OK);
     }
 
+    //know the votes for each candidate
+    @GetMapping(value = "candidato/{candidato}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<Object> buscarCandidato(@Valid @PathVariable("candidato") String candidato) {
+        return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscarCandidato(candidato)), HttpStatus.OK);
+    }
+
 }

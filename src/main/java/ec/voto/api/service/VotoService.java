@@ -46,4 +46,9 @@ public class VotoService extends GenericCrudServiceImpl<Voto, VotoDTO> {
         return entidad;
     }
 
+    public List<Voto> buscarCandidato(String candidato) {
+        List<Voto> entidad = repository.findByPartido_Candidato(candidato);
+        return entidad;
+    }
+
 }

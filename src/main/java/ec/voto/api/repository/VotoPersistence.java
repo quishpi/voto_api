@@ -14,4 +14,6 @@ public interface VotoPersistence extends JpaRepository<Voto, Long> {
 
     List<Voto> findByEstudiante_Curso_Mesa_NumMesa(Long numMesa);
 
+    List<Voto> findByPartido_Candidato(String candidato);
+
 }
