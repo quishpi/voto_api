@@ -1,10 +1,7 @@
 package ec.voto.api.service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
-import ec.voto.api.domain.Curso;
-import ec.voto.api.domain.Partido;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,9 +43,21 @@ public class VotoService extends GenericCrudServiceImpl<Voto, VotoDTO> {
         return entidad;
     }
 
-    public List<Voto> buscarCandidato(String candidato) {
-        List<Voto> entidad = repository.findByPartido_Candidato(candidato);
-        return entidad;
+    public Map<String, Long> buscarCandidato(String candidato) {
+        List<Object[]> results = repository.countByPartidoCandidatoGroupBy(candidato);
+
+        Map<String, Long> candidatoVotosMap = new HashMap<>();
+
+        for (Object[] result : results) {
+            String nombreCandidato = (String) result[0];
+            Long cantidadVotos = (Long) result[1];
+
+            candidatoVotosMap.put(nombreCandidato, cantidadVotos);
+        }
+
+        return candidatoVotosMap;
     }
+
+    //test - votes per tables
 
 }

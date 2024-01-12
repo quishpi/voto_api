@@ -1,9 +1,9 @@
 package ec.voto.api.v1;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.Map;
 
-import ec.voto.api.domain.Curso;
 import ec.voto.api.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,16 +57,21 @@ public class VotoController {
         return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscarPorCurso(curso)), HttpStatus.OK);
     }
 
+
     //know the votes for tables
     @GetMapping(value = "mesa/{numMesa}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Object> buscarPorCurso(@Valid @PathVariable("numMesa") Long numMesa) {
         return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscarNumMesa(numMesa)), HttpStatus.OK);
     }
 
-    //know the votes for each candidate
     @GetMapping(value = "candidato/{candidato}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Object> buscarCandidato(@Valid @PathVariable("candidato") String candidato) {
-        return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscarCandidato(candidato)), HttpStatus.OK);
+        Map<String, Long> candidatoVotosMap = service.buscarCandidato(candidato);
+        if (candidatoVotosMap.isEmpty()) {
+            return new ResponseEntity<>(new ApiResponseDTO<>(false, "No hay votos asociados al candidato: " + candidato), HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(new ApiResponseDTO<>(true, candidatoVotosMap), HttpStatus.OK);
+        }
     }
 
 }
