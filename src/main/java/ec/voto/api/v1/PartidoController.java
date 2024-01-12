@@ -50,7 +50,7 @@ public class PartidoController {
         return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "{id}/id", produces = { MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping(value = "id/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<Object> buscarPorId(@Valid @PathVariable("id") long id) {
         PartidoDTO dto = new PartidoDTO();
         dto.setId(id);
@@ -58,9 +58,9 @@ public class PartidoController {
     }
 
     /* Find Partido with names of candidates */
-    @GetMapping(value = "{numPartido}/numeroPartido", produces = { MediaType.APPLICATION_JSON_VALUE })
-    public ResponseEntity<Object> buscarPorNumPartido(@Valid @PathVariable("numPartido") Long numPartido) {
-        return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscarPorNumPartido(numPartido)), HttpStatus.OK);
+    @GetMapping(value = "candidato/{candidato}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<Object> buscarPorCandidato(@Valid @PathVariable("candidato") String candidato) {
+        return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscarPorCandidato(candidato)), HttpStatus.OK);
     }
 
     @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)

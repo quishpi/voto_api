@@ -1,16 +1,17 @@
 package ec.voto.api.v1;
 
 import java.util.List;
+import java.util.Objects;
 
-import ec.voto.api.dto.PartidoDTO;
+import ec.voto.api.domain.Curso;
+import ec.voto.api.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import ec.voto.api.dto.ApiResponseDTO;
-import ec.voto.api.dto.VotoDTO;
+import ec.voto.api.domain.Voto;
 import ec.voto.api.service.VotoService;
 import jakarta.validation.Valid;
 
@@ -30,8 +31,12 @@ public class VotoController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> guardar(@RequestBody VotoDTO VotoDTO) {
-        VotoDTO PaisDTOResult = service.save(VotoDTO);
-        return new ResponseEntity<>(new ApiResponseDTO<>(true, PaisDTOResult), HttpStatus.CREATED);
+        //change status of firmaAsistencia
+        EstudianteDTO dto = VotoDTO.getEstudiante();
+        dto.setFirmaAsistencia(true);
+        //save Voto
+        VotoDTO VotoDTOResult = service.save(VotoDTO);
+        return new ResponseEntity<>(new ApiResponseDTO<>(true, VotoDTOResult), HttpStatus.CREATED);
     }
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -44,6 +49,18 @@ public class VotoController {
     public ResponseEntity<Object> eliminar(@RequestBody VotoDTO VotoDTO) {
         VotoDTO resultDTO = service.delete(VotoDTO);
         return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.OK);
+    }
+
+    //know the votes for Grade
+    @GetMapping(value = "curso/{curso}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<Object> buscarPorCurso(@Valid @PathVariable("curso") String curso) {
+        return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscarPorCurso(curso)), HttpStatus.OK);
+    }
+
+    //know the votes for tables
+    @GetMapping(value = "mesa/{numMesa}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<Object> buscarPorCurso(@Valid @PathVariable("numMesa") Long numMesa) {
+        return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscarNumMesa(numMesa)), HttpStatus.OK);
     }
 
 }

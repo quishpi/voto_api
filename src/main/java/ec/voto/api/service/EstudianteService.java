@@ -1,4 +1,5 @@
 package ec.voto.api.service;
+import java.util.List;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
@@ -30,6 +31,11 @@ public class EstudianteService extends GenericCrudServiceImpl<Estudiante, Estudi
     @Override
     public EstudianteDTO mapToDto(Estudiante domain) {
         return modelMapper.map(domain, EstudianteDTO.class);
+    }
+
+    public List<Estudiante> buscarPorFirmaAsistencia(Boolean firmaAsistencia) {
+        List<Estudiante> entidad = repository.findByFirmaAsistencia(firmaAsistencia);
+        return entidad;
     }
 
 }

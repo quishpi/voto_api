@@ -32,8 +32,4 @@ public class Voto {
     @JoinColumn(name = "partido_id")
     private Partido partido;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "mesa_id")
-    private MesaElectoral mesa;
-
 }

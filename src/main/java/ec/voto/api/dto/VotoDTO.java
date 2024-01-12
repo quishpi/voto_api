@@ -22,6 +22,4 @@ public class VotoDTO {
 
     private PartidoDTO partido;
 
-    private MesaElectoralDTO mesa;
-
 }

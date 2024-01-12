@@ -51,4 +51,10 @@ public class EstudianteController {
         EstudianteDTO resultDTO = service.delete(EstudianteDTO);
         return new ResponseEntity<>(new ApiResponseDTO<>(true, resultDTO), HttpStatus.CREATED);
     }
+
+    //Find for students who didn't vote
+    @GetMapping(value = "firma/{firmaAsistencia}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<Object> buscarPorFirmaAsistencia(@Valid @PathVariable("firmaAsistencia") Boolean firmaAsistencia) {
+        return new ResponseEntity<>(new ApiResponseDTO<>(true, service.buscarPorFirmaAsistencia(firmaAsistencia)), HttpStatus.OK);
+    }
 }

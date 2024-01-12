@@ -1,7 +1,10 @@
 package ec.voto.api.service;
 
+import java.util.List;
 import java.util.Optional;
 
+import ec.voto.api.domain.Curso;
+import ec.voto.api.domain.Partido;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +34,16 @@ public class VotoService extends GenericCrudServiceImpl<Voto, VotoDTO> {
     @Override
     public VotoDTO mapToDto(Voto domain) {
         return modelMapper.map(domain, VotoDTO.class);
+    }
+
+    public List<Voto> buscarPorCurso(String curso) {
+        List<Voto> entidad = repository.findByEstudiante_Curso_Nombre(curso);
+        return entidad;
+    }
+
+    public List<Voto> buscarNumMesa(Long numMesa) {
+        List<Voto> entidad = repository.findByEstudiante_Curso_Mesa_NumMesa(numMesa);
+        return entidad;
     }
 
 }

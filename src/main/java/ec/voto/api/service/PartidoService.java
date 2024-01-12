@@ -34,8 +34,8 @@ public class PartidoService extends GenericCrudServiceImpl<Partido, PartidoDTO> 
         return modelMapper.map(domain, PartidoDTO.class);
     }
 
-    public Optional<Partido> buscarPorNumPartido(Long numPartido) {
-        Optional<Partido> entidad = repository.findByNumPartido(numPartido);
+    public Optional<Partido> buscarPorCandidato(String candidato) {
+        Optional<Partido> entidad = repository.findByCandidato(candidato);
         return entidad;
     }
 }
